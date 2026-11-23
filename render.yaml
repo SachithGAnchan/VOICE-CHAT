@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: hangout-voice-chat
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: ROOM_INVITE_CODE
+        sync: false
+      - key: ROOM_NAME
+        value: hangout-friends
